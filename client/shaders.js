@@ -3,7 +3,7 @@ if(typeof window.loadShader !== "function"){
   throw new Error("window.loadShader is missing")
 }
 
-function loadColorShader(name, color){
+function loadColor(name, color){
   return loadShader(name, null, `
     uniform float u_time;
 
@@ -14,4 +14,4 @@ function loadColorShader(name, color){
   `)
 }
 
-// Example: loadShaderColor("orange", [255, 70, 0]) will load a shader named "orange" that changes the color to orange when loaded as a component via shader()
+// Example: loadColor("orange", [255, 70, 0]) will load a shader named "orange" that changes the color to orange when loaded as a component via shader()
