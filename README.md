@@ -1,5 +1,5 @@
 # Some Random Platformer Multiplayer Mod
-The official multiplayer mod for Some Random Platformer.
+The official multiplayer mod for Some Random Platformer **(WIP)**.
 
 By using this mod or code from this repository, you argee to our [TOS](https://some-random-platformer.powerbox1000.repl.co/tos).
 
