@@ -1,6 +1,6 @@
 // Multiplayer Mod (API v2 Edition)
 (async function(){
-    if(!window.experiments.modstore) return;
+    if(!window.experiments.multiplayer) return;
     // Yay shaders
     var shaderCode = await (await fetch('https://raw.githubusercontent.com/Powerbox1000-Studios/some-random-platformer-multiplayer/main/client/shaders.js')).text()
     eval(shaderCode)
