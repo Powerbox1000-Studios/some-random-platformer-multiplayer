@@ -168,10 +168,10 @@
                     if(!choosingDifficulty){
                         messageState = "preServerConnect"
                         go("message", "Connecting to server...", 20, false)
-                    }else{
-                        choosingDifficulty = false
                     }
+                    choosingDifficulty = false
                 }else if(e.scene == "game"){
+                    choosingDifficulty = false
                     setTimeout(() => {
                         var player = get("player")[0]
                         updateHandler = player.onUpdate(() => {
@@ -215,6 +215,12 @@
                             ws.onclose = () => {
                                 mod.removeLevel('multiplayer_loaded')
                                 console.info('Multiplayer Mod: WebSocket closed')
+                                if(["title", "finish", "message"].indexOf(window.currentScene) == -1){
+                                    go("message", "Disconnected", 20, true, () => {
+                                        go("title")
+                                    })
+                                }
+                                ws = null
                             }
                             function connectWait(){
                                 if(ws.readyState == 1){
