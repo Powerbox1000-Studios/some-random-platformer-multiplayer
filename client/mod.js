@@ -37,6 +37,9 @@
     const SUPPORTED_PROTOCOLS = [
         "protocols.multiplayer.v1"
     ]
+    
+    // Global Flags
+    window.showSelf = false
 
     // Functions
     function vec2ToArray(vec){
@@ -128,7 +131,7 @@
                             })
                             playerSprites = []
                             data.players.forEach((player) => {
-                                if(true || player.id != user.id){
+                                if(showSelf || player.id != user.id){
                                     var spr = mod.addSprite((!player.isCrouched ? "player" : "playerCrouch"), player.pos)
                                     spr.unuse("body")
                                     spr.unuse("solid")
@@ -186,7 +189,7 @@
                         pos: [0, 0],
                         auth: token
                     }))
-                }else if(e.scene == "win"){
+                }else if(e.scene == "finish"){
                     ws.close()
                 }else if(messageState != null && e.scene == "message"){
                     switch(messageState){
@@ -198,7 +201,7 @@
                             }
                             try{
                                 var u = new URL(input)
-                                if(['ws:', 'wss'].indexOf(u.protocol) <= -1){
+                                if(['ws:', 'wss:'].indexOf(u.protocol) <= -1){
                                     u.protocol = 'wss:' // default to wss
                                 }
                                 url = u.href
