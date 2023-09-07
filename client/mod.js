@@ -174,18 +174,13 @@
                     choosingDifficulty = false
                     setTimeout(() => {
                         var player = get("player")[0]
-                        var prevPos = [0, 0]
                         updateHandler = player.onUpdate(() => {
-                            var currPos = vec2ToArray(player.pos)
-                            if(prevPos == currPos){
-                                ws.send(JSON.stringify({
-                                    type: "move",
-                                    pos: currPos,
-                                    isCrouched: (get("player")[0].inspect().sprite == '"playerCrouch"'),
-                                    auth: token
-                                }))
-                            }
-                            prevPos = currPos
+                            ws.send(JSON.stringify({
+                                type: "move",
+                                pos: vec2ToArray(player.pos),
+                                isCrouched: (get("player")[0].inspect().sprite == '"playerCrouch"'),
+                                auth: token
+                            }))
                         })
                     }, 100)
                 }else if(e.scene == "died"){
