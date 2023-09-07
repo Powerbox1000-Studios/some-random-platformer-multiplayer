@@ -196,7 +196,7 @@
                         case "preServerConnect":
                             var input = prompt('Enter server address:')
                             if(input == null){
-                                go("message", "Failed to connect: User aborted", 20)
+                                go("message", "Failed to connect: User cancelled", 20)
                                 break
                             }
                             try{
