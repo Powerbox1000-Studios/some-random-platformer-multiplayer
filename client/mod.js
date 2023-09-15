@@ -83,7 +83,7 @@
             var url = null
             var ws = null
             var updateHandler = null
-            var token = localStorage.code
+            var token = auth.generateSession()
             var playerSprites = []
 
             // WebSocker handler
