@@ -83,7 +83,7 @@
             var url = null
             var ws = null
             var updateHandler = null
-            var token = auth.generateSession()
+            var token = await auth.generateSession()
             var playerSprites = []
 
             // WebSocker handler
